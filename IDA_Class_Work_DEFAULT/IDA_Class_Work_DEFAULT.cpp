@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿//class template version 4.0 //20.06.2023//
+#include <iostream>
 #include <string>
 #include <windows.h>
 #include <time.h>
