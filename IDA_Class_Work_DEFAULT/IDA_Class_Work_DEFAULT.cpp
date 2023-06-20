@@ -4,7 +4,6 @@
 #include <time.h>
 #include <algorithm>
 #include <conio.h>
-//#include <array>
 //My own headers
 #include "Service functions.h"
 #include "classes.h"

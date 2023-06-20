@@ -71,6 +71,43 @@ int Get_Int_Positive()
 		std::cout << "Input Error: NULL input. Positive [INTEGER] expected.\n";
 	return Get_Int_Positive();
 }
+int Get_Int_Positive(int BOTTOM_limit, int UP_limit, std::string comment)
+{
+
+	std::string a;
+	std::cin.sync();
+	std::cin.clear();
+	getline(std::cin, a);
+	if (a != "")
+	{
+
+		if ((a.find_first_not_of("0123456789") == -1))
+		{
+			try {
+				int try_to_get_int = stoi(a);
+				if (try_to_get_int < BOTTOM_limit || try_to_get_int > UP_limit)
+				{
+					std::cout << comment;
+					//return UP_limit;
+					return Get_Int_Positive(BOTTOM_limit, UP_limit, comment);
+				}
+
+				return stoi(a);
+			}
+			catch (std::out_of_range) {
+				std::cout << "Input Error: overflow. Positive [INTEGER] expected.\n";
+			}
+		}
+		else
+		{
+			std::cout << "Input Error: Positive [INTEGER] expected.\n";
+			return Get_Int_Positive(BOTTOM_limit, UP_limit, comment);
+		}
+	}
+	else
+		std::cout << "Input Error: NULL input. Positive [INTEGER] expected.\n";
+	return Get_Int_Positive(BOTTOM_limit, UP_limit, comment);
+}
 int Get_Int_PG()
 {
 	int a;
@@ -200,18 +237,4 @@ double Get_Random(double Range_min = -99999.0, double Range_max = 99999.0)
 		std::swap(Range_min, Range_max);
 	}
 	return 	Range_min + (Range_max - Range_min) * double(rand() % RAND_MAX) / RAND_MAX;
-}
-template <typename ANY> void Array_Console_Out(ANY arr[], int Size)
-{
-	std::cout << "\n[";
-	for (int i = 0; i < Size; i++)
-		std::cout << arr[i] << ", ";
-	std::cout << "\b\b]\n";
-}
-template <typename ANY> void Fill_Array_with_Random(ANY arr[], int Size, ANY Range_min, ANY Range_max)
-{
-	for (int i = 0; i < Size; i++)
-	{
-		arr[i] = Get_Random(Range_min, Range_max);
-	}
 }
