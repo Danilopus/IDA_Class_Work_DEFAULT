@@ -1,4 +1,4 @@
-﻿//class template version 4.0 //20.06.2023//
+﻿//class template version 5.0 //07.07.2023//
 #include <iostream>
 #include <string>
 #include <windows.h>
@@ -7,8 +7,7 @@
 #include <conio.h>
 //My own headers
 #include "Service functions.h"
-#include "classes.h"
-
+#include "Task_1.h"
 
 
 // Class Work DD.MM.YYYY -------------------------------------------	
